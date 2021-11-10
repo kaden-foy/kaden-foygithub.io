@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Balancing Robot</title>
+		<title>Hydrofoiling Sailboat</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -41,21 +41,41 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="BalancingRobot.html">Balancing Robot</a></li>
-							<li><a href="LaserSpeaker.html">Acustic Resnoator</a></li>
+							<li><a href="AcousticResonator.html">Acoustic Resonator</a></li>
 							<li><a href="Sailboat.html">Sailboat</a></li>
 							<li><a href="CouchClip.html">Coach Clip</a></li>
+							<li><a href="DarkMatter.html">Dark Matter Research</a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Hydroifoiling Sailboat</h1>
-							<span class="image main"><img src="Sailboat/render_1.jpg" alt="" /></span>
-							<p>The America Cup for sailing has evolved substantially over the years. The boats have not only gotten a lot faster but also have an increasing amount of tech built into them now. After seeing the new AC75 boat designs for the Americas cup I have started to design my own mini AC75 RC boat that will hopefully hydrofoil using only wind (no props). I have 3D printed the haul and have started to play around with gearing mechanisms. The idea behind the mechanism is to control both front hydrofoils with only one servo motor.</p>
-							<span class="image main"><img src="Sailboat/top_3.jpg" alt="" /></span>
-							<p>While discussion the project with a friend he told me about Geneva gears. And I now am using them as the solution for the allowing one motor to control two foils.</p>
-							<span class="image main"><img src="Sailboat/gear_1.JPG" alt="" /></span>
+							<h1>Hydrofoiling Sailboat</h1>
+							<span class="image main"><img src="Sailboat/render_2.jpg" alt="" style="width: 50vw; min-width: 330px;"/></span>
+							<p>The America Cup for sailing has evolved substantially over the years. The boats have become significantly 
+								faster and begun to rely on technology to remain competitive. After seeing the new AC75 boat designs from 
+								the 36th America’s cup, I wanted to design my own mini AC75 RC boat. The very interesting and difficult 
+								aspect of this new boat design is that it is a hydro-foiling sailboat with a monohull, meaning its less 
+								stable once in the air. <a href="https://www.youtube.com/watch?v=OQsXDdGxk3U">Here</a> 
+								is a video showing the boats in action.</p>
+							<p>I designed a 1-meter-long CAD model of the sailboat and 3D printed it; files linked 
+								<a href="https://github.com/kaden-foy/kaden-foygithub.io/tree/main/Sailboat">Here</a>. The idea behind 
+								this model was to get an accurate idea of weight as well as play around with designs for the control 
+								surfaces. One of the larger constraints of this project is weight, both in distribution and quantity. To 
+								keep the boat light, a Geneve gear is used to control the position of the front two hydrofoils with a 
+								single servo motor. Using a gear system like this also allows for the full servo range to be utilized and 
+								geared properly.</p>
+							<span class="image main"><img src="Sailboat/top_3.jpg" alt="" style="width: 30vw; min-width: 330px;"/></span>
+							<span class="image main"><img src="Sailboat/gear_1.JPG" alt="" style="width: 30vw; min-width: 330px;"/></span>
+							<p>I have 3D printed the haul and have started to play around with the Geneve gear mechanisms. I also have a 
+								mast, which will be trimmed down after the amount of sail area is finalized. The system will contain a RC 
+								receiver as well as 3 servos. The boat will have pitch and yaw control from the rudder and be stabilized 
+								from the front 2 hydrofoils. The initial size and shape of the foils was calculated using 
+								<a href="http://airfoiltools.com/userairfoil/index">NACA calculator</a>. The front two foils each had a 
+								cord length of 10mm and a leading edge length of 32mm. The back rudder/foil had a cord length of 12mm 
+								leading edge length of 35mm. A low-speed ULM airfoil was chosen because it is both easy to design and 
+								fabricate but also optimal for slow speeds.</p>
 						</div>
 					</div>
 

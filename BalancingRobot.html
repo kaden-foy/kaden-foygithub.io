@@ -41,9 +41,10 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="BalancingRobot.html">Balancing Robot</a></li>
-							<li><a href="LaserSpeaker.html">Acustic Resnoator</a></li>
+							<li><a href="AcousticResonator.html">Acoustic Resonator</a></li>
 							<li><a href="Sailboat.html">Sailboat</a></li>
 							<li><a href="CouchClip.html">Coach Clip</a></li>
+							<li><a href="DarkMatter.html">Dark Matter Research</a></li>
 						</ul>
 					</nav>
 
@@ -51,12 +52,20 @@
 					<div id="main">
 						<div class="inner">
 							<h1>Balancing Robot</h1>
-							<span class="image main"><img src="BalancingRobot/Wired_on_Back_2.jpg" alt="" /></span>
-							<p>The goal of this project is to create a robot that can balance on “legs”. The physical design was made in SolidWorks and I am currently on the 1st iteration. The robot is roughly 0.5 m tall and weights 3 kg. The design was made to be 3D printed on my Ender V2. </p>
-							<p>The robot uses a, 9 DOF, IMU that communicates with an Arduino Uno. The Arduino controls the 4 servo motors, that control the position of each joint. A reverse kinematic model is used to control the Robots legs positions. The robot has the ability to lean left/right/backward/forward and crouch/extend its legs. The Arduino is also connected to brushed servo motors that control the speed and direction of the wheels. </p>
-							<span class="image main"><img src="BalancingRobot/Leggs_up_1.jpg" alt="" /></span>
-							<p>The system will use PID control loops to activity balance the robot. The Arduino also reads a PWM signal from a radio transmitter which will allow for the user to drive the robot around.</p>
-							<p>I have made the existing robot CODE and CAD available on my GitHub.</p>
+							<span class="image main"><img src="BalancingRobot/Wired_on_Back_2.jpg" alt="" style="width: 75vw; min-width: 330px;"/></span>
+							<p>The goal of this project is to create a robot that can balance on its two legs, via active control systems. The robot is 
+								remote controlled. The robot should be able to move forward, backwards, turn and lean left or right, squat, and stand 
+								while actively balancing itself.</p>
+							<p>The first iteration is roughly 0.5 m tall and weighs 3 kg. The design was made to be 3D printed and was designed in 
+								SolidWorks. The robot uses a, 9 DOF, IMU that communicates with an Arduino Uno. The Arduino controls the 4 servo motors, 
+								which control the position of each joint. An inverse kinematic model is used to control the robot’s leg positions. The 
+								Arduino is also connected to brushed DC motors that control the speed and direction of the wheels. The remote connects 
+								to a receiver that outputs a PWM signal for each channel (control input). The Arduino reads the receiver’s signal, 
+								allowing for external control.</p>
+							<span class="image main"><img src="BalancingRobot/Leggs_up_1.jpg" alt="" style="width: 40vw; min-width: 330px;"/></span>
+							<p>All the wiring and individual component work has been completed. The last steps are to: bug fix the brushed DC motor 
+								controllers and tune the PID system.</p>
+							<p>I have made the existing robot CODE and CAD available on my <a href="https://github.com/kaden-foy/kaden-foygithub.io/tree/main/BalancingRobot">GitHub</a></p>
 						</div>
 					</div>
 

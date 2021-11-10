@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Balancing Robot</title>
+		<title>Coach Clip</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -41,9 +41,10 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="BalancingRobot.html">Balancing Robot</a></li>
-							<li><a href="LaserSpeaker.html">Acustic Resnoator</a></li>
+							<li><a href="AcousticResonator.html">Acoustic Resonator</a></li>
 							<li><a href="Sailboat.html">Sailboat</a></li>
 							<li><a href="CouchClip.html">Coach Clip</a></li>
+							<li><a href="DarkMatter.html">Dark Matter Research</a></li>
 						</ul>
 					</nav>
 
@@ -51,10 +52,32 @@
 					<div id="main">
 						<div class="inner">
 							<h1>Couch Clip</h1>
-							<span class="image main"><img src="CouchClip/Stress_1.JPG" alt="" /></span>
-							<p>As a small exercise in FEA I built and iterated a couch clip. The Clip is used to hold two sections of the couch together and is put under large loads, due to the leverage of the coach. </p>
-							<p>There were several iterations of the couch clip. The design started as a L bracket and then when updated with the circular bend to allow for more give before fracture. Finally, the grind end was outfitted to also have a radius. This radius helps keep the force only in x-axis. </p>
-							<span class="image main"><img src="CouchClip/Render_1.JPG" alt="" /></span>
+							<span class="image main"><img src="CouchClip/Stress_1.JPG" alt="" style="width: 60vw; min-width: 330px;"/></span>
+							<p>One of the first projects where I iterated through different parameter to get the best 3D printed product was 
+								a couch clip. It was designed to hold two sections of my couch together. The initial design was a simple L 
+								bracket that was 25mm wide. This design was printed with PLA, using a 0.4mm nozzle and had a tri-hexagonal 
+								infill of 50%. This clip design however broke after only a couple days of use. The break happened right at 
+								the corner, as made sense. My next iteration I changed the infill to 100% and made the design 50mm wide. 
+								This design lasted significantly longer, around a month before breaking at the same location.</p>
+							<p>My design changed significantly at this point. I removed the sharp 90-degree corner with a rounded corner to 
+								allow for less stress concentration and more “give” before breaking. Also, to increase print speed and 
+								strengthen the print, a 0.8mm nozzle was used and the infill was set to trace out the outline of the clip, 
+								removing any grain that would run parallel to the shear stresses. This clip design lasted over 6-months 
+								until breaking. However, this time the clip broke due to “user error”, as someone tryied to move the couch 
+								by pulling on the smaller couch section. This put roughly 150lbs of force on the clip. However, I suspect 
+								what actually broke the clip was that the way the force was applied to the clip. The force was applied at 
+								one edge cause a toque on the clip which concentrating all the stress to one side. I suspect this because 
+								the clip mount, which is metal, had its screws partially ripped out of the couch in manner consistent with 
+								a sideways load.</p>
+							<p>The final design incorporates a curved face that contacts the main section of the couch. This should, in 
+								theory, reduce the torque on the clip as the surface is normal to the point of contact.</p>
+							<p>As a small exercise in FEA, I imported my latest design and tested it with 150lbs. My results showed that 
+								the stress concentrated where the last design iteration failed. It also showed that the stresses, arguable 
+								within the margin of error, were not high enough to break the clip. I suspect that if an FEA was competed 
+								with additional torque, there would be a region that had high enough stress to cause a failure.</p>
+							<p>As of today, the current iteration has not failed. A link to the Current CAD and STL file can be found on my
+								<a href="https://github.com/kaden-foy/kaden-foygithub.io/tree/main/CouchClip">GitHub.</a></p>
+							<span class="image main"><img src="CouchClip/Render_1.JPG" alt="" style="width: 30vw; min-width: 330px;"/></span>
 						</div>
 					</div>
 
