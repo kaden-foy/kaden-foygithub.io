@@ -54,25 +54,70 @@
 						<div class="inner">
 							<h1>CAL 3D Printer</h1>
 							<span class="image main"><img src="CAL3D_Printer/Built_9.jpg" alt="" style="width: 50vw; min-width: 330px;"/></span>
-							<p>paragraph 1</p>
-							<p>paragraph 2</p>
-							<p>paragraph 3</p>
+							<p>This is my largest project both in scope and difficulty. The goal of this project is to create a 3D printer that 
+								uses a novel 3D printing technology. Computed Axial Lithography (CAL) is a relatively new 3D printing method 
+								that combines two existing technologies: Digital Light Processing (DLP) 3D printing and Computed Axial 
+								Tomography (CAT) scanners. I, first, started to work on this as part of my undergraduate Thesis (2020). I have 
+								continued to work on this on weekends and my time off since then. I currently have more material and work than I 
+								can showcase in this overview. As such, this form is written with the expectation that the readier has some 
+								engineering knowledge to fall back on.</p>
+							<p>CAL 3D printing works by shining a masked light source through a light sensitive resin. This resin is not standard 
+								Stereolithography (SLA) or DLP resin, as it needs to be somewhat transparent to the light that cures it. It also 
+								cures in a nonlinearly fashion. As you shine light through the container you need to dose all the resin that’s 
+								in the light path and not just the surface of the resin. Additionally, you want resin to cure only when it hits 
+								a threshold of absorbed light, making it nonlinear. Lastly, you need to create your 3D printed part by dosing the 
+								resin above the threshold in areas you want material and keep the dose below the threshold where you don’t want 
+								material. Unfortunately, I have not purchased resin yet as its expensive and I need to make it in-house, so I am 
+								missing some equipment.  </p>
+							<p>There are several ways to obtain the correct dosage of light in the resin. The method I am focusing on is CAL. 
+								This method works by generating a video that plays on a ‘projector-like device’ that is then focused to have a 
+								large depth of field and projected through the resin. The resin is then rotated, and the rotating is synced to 
+								the video. The video changes as the resin is rotated, creating the correct dosage throughout the resin. </p>
 							<span class="image main"><img src="CAL3D_Printer/doseImage_7.JPG" alt="" style="width: 30vw; min-width: 330px;"/></span>
-							<p>paragraph 4</p>
+							<p>If you are curious as to what the video looks like here is a 
+								<a href="https://www.youtube.com/watch?v=xIjXOoEEyTM&t=13s">link</span></a>. 
+								The Video is created with an algorithm I developed which reverses the algorithm used in CAT scanners. Simply 
+								put, a CAT scanner works by taking x-ray images at different angles. These images represent the density of the 
+								person. The CAT scanner algorithm then takes these images and constructs a 3D model of the person. My algorithm 
+								takes a 3D object, an STL file, and then creates ‘density’ images for a variety of angles. These images are 
+								then stitched into a video. Unfortunately, it’s actually more complicated than that. Here are just some of the 
+								other factors that need to be taken into account:</p>
 							<ol>
-								<li>Item 1 </li>
-								<li>Item 2</li>
-								<li>Item 3</li>
-								<li>Item 4</li>
+								<li>The geometry of the container </li>
+								<li>Over/under sampling edges and surfaces</li>
+								<li>The inability to un-absorb dose (this means an approximation of the object must be made)</li>
+								<li>Gravity (cured resin tends to sink)</li>
 							  </ol>
-							<p>paragraph 6</p>
+							<p>For those interested in how I try and account for some of these factors see the slide below that shows the math 
+								used in filtering the images.</p>
 							<span class="image main"><img src="CAL3D_Printer/math_6.JPG" alt="" style="width: 60vw; min-width: 330px;"/></span>
-							<p>paragraph 7</p>
+							<p>Resin absorption follows Beer’s Law. One must adjust the concentration of the curing agent in the resin. Ideally 
+								you would have the same amount of light being absorbed at every depth of the resin. However, a percentage of the 
+								light is absorbed per unit of length. A way to get around this is to have less light being absorbed, meaning most 
+								of the light passes through the resin and is never used. This is inefficient and requires a larger light source. 
+								The plan is to test different concentrations of curing agent to see what the optimal absorbance rate is. Below is 
+								a slide showing Beer’s Law and the linear approximation made.</p>
 							<span class="image main"><img src="CAL3D_Printer/BeersLaw_3.JPG" alt="" style="width: 60vw; min-width: 330px;"/></span>
-							<p>paragraph 8</p>
+							<p>A high-power light source is required. Due to my budget constraints, I decided to build my own ‘projector’. I 
+								designed the light path with a 30W 405nm LED COB. The UV light passes through a fresnel lens and a LCD screen that 
+								is designed for UV light. This LCD screen is also monochromatic which means each pixel doesn’t need to be split 
+								into 3 channels (RGB), allowing more light through. This is important with UV screens as they are much less 
+								efficient with light transmission. An optical simulation was used to see the distortion due to the light passing 
+								through different media. This simulation does not account for the fact that the LED COB is not a point-source and 
+								has non-collimated light. I believe this is actually a problem that may make this design non-functional for any 
+								detailed features. This is because the width of the COB is large, as it needs to be high power, but you cannot 
+								collimate the light from a large LED. This was known before purchasing the LED and was going to be compensated by 
+								focusing the light in the center of the resin. However, after doing this, the depth of field was found to be too 
+								shallow for any detailed objects to be printed. I actually have an idea for solving this problem that will be 
+								implemented in a future iteration, once I learn more from this current iteration.</p>
 							<span class="image main"><img src="CAL3D_Printer/opticPath_5.JPG" alt="" style="width: 60vw; min-width: 330px;"/></span>
 							<span class="image main"><img src="CAL3D_Printer/opticSim_4.JPG" alt="" style="width: 60vw; min-width: 330px;"/></span>
-							<p>paragraph 9</p>
+							<p>The first iteration is made using a rail system that allows me to try different depths for the light path. While I 
+								calculated the theoretical optimal distances needed, I wanted this flexibility to be able to change the lens and 
+								light sources. I 3D printed most of the components for this project with my personal FDM printer. The CPU cooler 
+								is used to dissipate the heat from the LED COB, which is attached with thermally conductive, double-sided tape. A 
+								Large CPU cooler is required because UV LED are substantially less efficient than a ‘white’ LED. As a result, I 
+								can only keep the UV light on for a couple minutes (long enough for a 3D printer, theoretically).</p>
 							<span class="image main"><img src="CAL3D_Printer/Design_2.JPG" alt="" style="width: 60vw; min-width: 330px;"/></span>
 							<span class="image main"><img src="CAL3D_Printer/WorkDone_8.JPG" alt="" style="width: 60vw; min-width: 330px;"/></span>
 							<p>I have made some of the CODE and CAD available on my <a href="https://github.com/kaden-foy/kaden-foygithub.io/tree/main/CAL3D_Printer">GitHub.</a></p>
